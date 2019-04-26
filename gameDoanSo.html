@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <script>
+       function binSearch(arr, data) {
+            let lowerBound = 0;
+            let upperBound = arr.length - 1;
+            let position = -1;
+            while (lowerBound < upperBound) {
+                let midPoint = Math.floor((lowerBound + upperBound) / 2);
+
+                if(arr[midPoint] === data) {
+                    position = midPoint;
+                    break;
+                } else if (arr[midPoint] > data){
+                    upperBound = midPoint -1
+                } else {
+                    lowerBound = midPoint + 1
+                }
+            }
+
+            return position;
+        };
+
+
+        let arr=[];
+
+        for(let i = 0; i < 100;i ++){
+            arr[i] = Math.floor(Math.random()*101)
+        }
+
+        arr.sort(function(a, b){return a-b});
+        console.log(arr)
+
+
+        let number = Math.floor(Math.random()*101);
+
+        console.log(number);
+
+        let value = binSearch(arr,number);
+
+        console.log("so du doan "+number+" nam o vi tri " + value )
+
+    </script>
+</body>
+</html>
